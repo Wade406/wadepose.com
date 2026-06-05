@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas Made Physical - Wade Pose</title>
+    <style>
+        /* ===== WADE POSE PORTFOLIO - MASTER RESPONSIVE CSS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+            background: #2a2a2a;
+            color: #d4cba8;
+            line-height: 1.6;
+        }
+
+        /* Responsive Typography */
+        h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 300;
+            letter-spacing: clamp(1px, 0.3vw, 4px);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 300;
+            letter-spacing: clamp(1px, 0.2vw, 2px);
+            color: #d4cba8;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: clamp(14px, 1.8vw, 16px);
+            margin-bottom: 20px;
+        }
+
+        /* Container Responsive Sizing */
+        .container {
+            max-width: clamp(300px, 90vw, 1200px);
+            margin: 0 auto;
+            padding: clamp(20px, 4vw, 40px);
+        }
+
+        /* Navigation Elements */
+        .back-nav {
+            margin-bottom: clamp(20px, 4vw, 40px);
+        }
+
+        .back-nav a {
+            color: #d4cba8;
+            text-decoration: none;
+            font-size: clamp(12px, 1.5vw, 14px);
+            border: 1px solid #d4cba8;
+            padding: clamp(8px, 1.5vw, 10px) clamp(15px, 3vw, 20px);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .back-nav a:hover {
+            background: #d4cba8;
+            color: #2a2a2a;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2.5vw, 18px);
+            margin-bottom: clamp(40px, 6vw, 60px);
+            color: #a0967a;
+            font-style: italic;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(40px, 6vw, 80px);
+            margin: clamp(40px, 6vw, 60px) 0;
+        }
+
+        .work-piece {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(20px, 4vw, 40px);
+            align-items: center;
+        }
+
+        .work-piece.full-width {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .work-image {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+
+        .work-info h3 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 300;
+            color: #d4cba8;
+            margin-bottom: 10px;
+        }
+
+        .work-details {
+            font-size: clamp(12px, 1.5vw, 14px);
+            color: #a0967a;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .work-description {
+            font-size: clamp(14px, 1.8vw, 16px);
+            color: #b8a882;
+        }
+
+        @media (max-width: 768px) {
+            .work-piece {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .work-image {
+                margin-bottom: 20px;
+            }
+        }
+        /* ===== END MASTER CSS ===== */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="back-nav">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+        
+        <h1>Ideas Made Physical</h1>
+        <div class="subtitle">Taking abstract concepts and giving them material form</div>
+        
+        <p>Abstract concepts require material presence to become real. Working primarily in clay, I develop forms that embody psychological states, temporal processes, and contemplative practices. Each piece emerges from a specific conceptual challenge — how do you give physical presence to memory, transformation, or interior experience?</p>
+        
+        <div class="work-grid">
+            <div class="work-piece full-width">
+                <div>
+                    <img src="20 Wade Pose.jpg" alt="Missing - Wall Installation" class="work-image">
+                    <div class="work-info">
+                        <h3>Missing</h3>
+                        <div class="work-details">Ceramic, Slip Cast Fabric, Steel, Wood, Textile, 144" x 48" x 4" (2010)</div>
+                        <div class="work-description">An installation exploring absence and memory through accumulated forms. Individual elements create a unified field that suggests both fragmentation and cohesion.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-piece">
+                <img src="1 Wade Pose.jpg" alt="Installation View" class="work-image">
+                <div class="work-info">
+                    <h3>Gallery Installation</h3>
+                    <div class="work-details">Various works, ceramic and mixed media (2009-2010)</div>
+                    <div class="work-description">Professional exhibition context showing range of sculptural approaches, from intimate torso studies to architectural interventions.</div>
+                </div>
+            </div>
+            
+            <div class="work-piece">
+                <div class="work-info">
+                    <h3>Acidrainlady</h3>
+                    <div class="work-details">Ceramic, Multiple High Fire, 42" x 16" x 15" (2009)</div>
+                    <div class="work-description">Geometric intervention in organic form. The relationship between structure and surface becomes a meditation on urban transformation.</div>
+                </div>
+                <img src="5 Wade Pose.jpg" alt="Acidrainlady - Ceramic Sculpture" class="work-image">
+            </div>
+            
+            <div class="work-piece">
+                <img src="7 Wade Pose.jpg" alt="Communications - Detail" class="work-image">
+                <div class="work-info">
+                    <h3>Communications</h3>
+                    <div class="work-details">Ceramic, Mishima, 37" x 15" x 14" (2009)</div>
+                    <div class="work-description">Surface as language. Intricate linear patterns create a visual syntax that suggests both circuit boards and neural networks.</div>
+                </div>
+            </div>
+            
+            <div class="work-piece">
+                <div class="work-info">
+                    <h3>Process Documentation</h3>
+                    <div class="work-details">Collaborative large-scale work, unfired ceramic</div>
+                    <div class="work-description">Working at architectural scale requires both individual focus and collaborative coordination. The practice becomes as important as the product.</div>
+                </div>
+                <img src="16 Wade Pose.jpg" alt="Process Documentation" class="work-image">
+            </div>
+        </div>
+        
+        <p>This represents a small selection of sculptural investigations from 2009-2010. The work continues to evolve, but the core question remains consistent: how do we make the invisible visible through material engagement?</p>
+        
+        <nav class="back-nav" style="margin-top: 60px; margin-bottom: 0;">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+    </div>
+</body>
+</html>

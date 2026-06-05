@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Intersection - Wade Pose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+            background: radial-gradient(circle at center, #333 0%, #1a1a1a 100%);
+            color: #d4cba8;
+            height: 100vh;
+            overflow: hidden;
+            cursor: crosshair;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .intersection-container {
+            text-align: center;
+            user-select: none;
+        }
+        
+        .scrambler {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .scrambler:hover {
+            color: #fff;
+            text-shadow: 0 0 20px rgba(212, 203, 168, 0.5);
+        }
+        
+        .experience-button {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid #d4cba8;
+            color: #d4cba8;
+            font-family: inherit;
+            font-size: 18px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .experience-button.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .experience-button:hover {
+            background: #d4cba8;
+            color: #1a1a1a;
+            box-shadow: 0 0 30px rgba(212, 203, 168, 0.4);
+        }
+        
+        .instruction {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #666;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="intersection-container">
+        <div class="scrambler large-text" id="scrambler">
+            explore possibilities
+        </div>
+        
+        <button class="experience-button" id="experienceBtn">Experience</button>
+    </div>
+    
+    <div class="instruction">
+        Hold to scramble • Release to resolve • Click again to re-randomize
+    </div>
+
+   <script>
+    // ====================== CAPABILITIES DECK ======================
+    const capabilities = [
+        "Spaces That Transform People",
+        "Ideas Made Physical", 
+        "Sounds That Carry Meaning",
+        "Digital Consciousness",
+        "Research In Action",
+        "Complete Worlds"
+    ];
+
+    // Fisher-Yates shuffle — true random order every time the deck resets
+    function shuffle(array) {
+        let arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // Deck state (fresh shuffle on every page load)
+    let shuffledCapabilities = [];
+    let currentDeckIndex = 0;
+
+    function resetAndShuffleDeck() {
+        shuffledCapabilities = shuffle(capabilities);
+        currentDeckIndex = 0;
+        console.log('%c🎴 New shuffled deck ready (6 possibilities)', 'color:#d4cba8; font-weight:bold', shuffledCapabilities);
+    }
+
+    function getNextCapability() {
+        if (shuffledCapabilities.length === 0 || currentDeckIndex >= shuffledCapabilities.length) {
+            resetAndShuffleDeck();
+        }
+        const capability = shuffledCapabilities[currentDeckIndex];
+        currentDeckIndex++;
+        console.log('Resolved to →', capability);
+        return capability;
+    }
+
+    // ====================== SCRAMBLER LOGIC ======================
+    const scrambler = document.getElementById('scrambler');
+    const experienceBtn = document.getElementById('experienceBtn');
+
+    const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+=<>?";
+    let isScrambling = false;
+    let scrambleInterval;
+    let resolveInterval;
+    let currentCapability = "";
+
+    function getRandomChar() {
+        return scrambleChars.charAt(Math.floor(Math.random() * scrambleChars.length));
+    }
+
+    function generateScrambleText(length) {
+        let result = "";
+        for (let i = 0; i < length; i++) {
+            result += getRandomChar();
+        }
+        return result;
+    }
+
+    function startScrambling() {
+        if (isScrambling) return;
+        isScrambling = true;
+        scrambleInterval = setInterval(() => {
+            const randomLength = 15 + Math.floor(Math.random() * 10);
+            scrambler.textContent = generateScrambleText(randomLength);
+        }, 80);
+    }
+
+    function stopScrambling() {
+        if (!isScrambling) return;
+        isScrambling = false;
+        clearInterval(scrambleInterval);
+
+        currentCapability = getNextCapability();
+        resolveText(currentCapability);
+    }
+
+    function resolveText(targetText) {
+        clearInterval(resolveInterval);
+        let currentText = generateScrambleText(targetText.length);
+        scrambler.textContent = currentText;
+        let resolvedChars = 0;
+
+        resolveInterval = setInterval(() => {
+            if (resolvedChars < targetText.length) {
+                currentText = targetText.substring(0, resolvedChars + 1) + 
+                              generateScrambleText(targetText.length - resolvedChars - 1);
+                scrambler.textContent = currentText;
+                resolvedChars++;
+            } else {
+                clearInterval(resolveInterval);
+                scrambler.textContent = targetText;
+                setTimeout(() => {
+                experienceBtn.classList.add('show');
+            }, 600);
+            }
+        }, 65);
+    }
+
+    // Click resolved text → hide button and scramble again
+    scrambler.addEventListener('click', () => {
+        if (!isScrambling && currentCapability) {
+            experienceBtn.classList.remove('show');
+            currentCapability = "";
+            startScrambling();
+        }
+    });
+
+    // ====================== NAVIGATION ======================
+    const pageMap = {
+        "Spaces That Transform People": "spaces.html",
+        "Ideas Made Physical": "ideas.html",
+        "Sounds That Carry Meaning": "sounds.html", 
+        "Digital Consciousness": "digital.html",
+        "Research In Action": "research.html",
+        "Complete Worlds": "complete-worlds.html"
+    };
+
+    experienceBtn.addEventListener('click', () => {
+        if (currentCapability && pageMap[currentCapability]) {
+            console.log('Navigating to:', pageMap[currentCapability]);
+            document.body.style.transition = 'opacity 0.5s ease-out';
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = pageMap[currentCapability];
+            }, 500);
+        }
+    });
+
+    // ====================== MOUSE / TOUCH CONTROLS ======================
+    scrambler.addEventListener('mousedown', startScrambling);
+    scrambler.addEventListener('mouseup', stopScrambling);
+    scrambler.addEventListener('mouseleave', stopScrambling);
+
+    // Initial shuffle when page loads
+    resetAndShuffleDeck();
+
+    console.log("%c✅ The Intersection is live — full deck of 6 possibilities ready", "color:#d4cba8");
+</script>
+</body>
+</html>

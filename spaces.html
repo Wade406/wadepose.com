@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaces That Transform People - Wade Pose</title>
+    <style>
+        /* ===== WADE POSE PORTFOLIO - MASTER RESPONSIVE CSS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+    background: #2a2a2a;
+    color: #d4cba8;
+    line-height: 1.6;
+}
+
+/* Responsive Typography */
+h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.3vw, 4px);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.2vw, 2px);
+    color: #d4cba8;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 300;
+    color: #b8a882;
+    margin: 40px 0 20px 0;
+}
+
+p {
+    font-size: clamp(14px, 1.8vw, 16px);
+    margin-bottom: 20px;
+}
+
+/* Large Display Text (for scrambler, hero text) */
+.large-text {
+    font-size: clamp(24px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.4vw, 3px);
+}
+
+/* Container Responsive Sizing */
+.container {
+    max-width: clamp(300px, 90vw, 1200px);
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 40px);
+}
+
+/* Navigation Elements */
+.back-nav {
+    margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.back-nav a {
+    color: #d4cba8;
+    text-decoration: none;
+    font-size: clamp(12px, 1.5vw, 14px);
+    border: 1px solid #d4cba8;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 3vw, 20px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.back-nav a:hover {
+    background: #d4cba8;
+    color: #2a2a2a;
+}
+
+/* Buttons */
+.btn {
+    padding: clamp(12px, 2vw, 15px) clamp(20px, 4vw, 40px);
+    background: transparent;
+    border: 2px solid #d4cba8;
+    color: #d4cba8;
+    font-family: inherit;
+    font-size: clamp(14px, 2vw, 18px);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #d4cba8;
+    color: #2a2a2a;
+    box-shadow: 0 0 clamp(15px, 3vw, 30px) rgba(212, 203, 168, 0.4);
+}
+
+/* Responsive Spacing */
+.section {
+    margin-bottom: clamp(40px, 8vw, 80px);
+}
+
+.project {
+    margin-bottom: clamp(40px, 6vw, 80px);
+    padding-bottom: clamp(20px, 4vw, 40px);
+    border-bottom: 1px solid #444;
+}
+
+/* Mobile Breakpoints */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .large-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .back-nav a {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Wide Screen Optimization */
+@media (min-width: 1400px) {
+    .large-text {
+        font-size: 80px;
+        letter-spacing: 4px;
+    }
+}
+/* ===== END MASTER CSS ===== */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="back-nav">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+        <h1>Spaces That Transform People</h1>
+        <div class="subtitle">Physical environments that shift consciousness and create transformation</div>
+        <p>Content coming soon...</p>
+        <nav class="back-nav" style="margin-top: 60px; margin-bottom: 0;">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Consciousness - Wade Pose</title>
+    <style>
+        /* ===== WADE POSE PORTFOLIO - MASTER RESPONSIVE CSS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+    background: #2a2a2a;
+    color: #d4cba8;
+    line-height: 1.6;
+}
+
+/* Responsive Typography */
+h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.3vw, 4px);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.2vw, 2px);
+    color: #d4cba8;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 300;
+    color: #b8a882;
+    margin: 40px 0 20px 0;
+}
+
+p {
+    font-size: clamp(14px, 1.8vw, 16px);
+    margin-bottom: 20px;
+}
+
+/* Subtitle (was missing from shell) */
+.subtitle {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: #b8a882;
+    font-style: italic;
+    margin-bottom: clamp(30px, 5vw, 50px);
+    letter-spacing: 1px;
+}
+
+/* Large Display Text (for scrambler, hero text) */
+.large-text {
+    font-size: clamp(24px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: clamp(1px, 0.4vw, 3px);
+}
+
+/* Container Responsive Sizing */
+.container {
+    max-width: clamp(300px, 90vw, 1200px);
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 40px);
+}
+
+/* Navigation Elements */
+.back-nav {
+    margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.back-nav a {
+    color: #d4cba8;
+    text-decoration: none;
+    font-size: clamp(12px, 1.5vw, 14px);
+    border: 1px solid #d4cba8;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 3vw, 20px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.back-nav a:hover {
+    background: #d4cba8;
+    color: #2a2a2a;
+}
+
+/* Buttons */
+.btn {
+    padding: clamp(12px, 2vw, 15px) clamp(20px, 4vw, 40px);
+    background: transparent;
+    border: 2px solid #d4cba8;
+    color: #d4cba8;
+    font-family: inherit;
+    font-size: clamp(14px, 2vw, 18px);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #d4cba8;
+    color: #2a2a2a;
+    box-shadow: 0 0 clamp(15px, 3vw, 30px) rgba(212, 203, 168, 0.4);
+}
+
+/* Responsive Spacing */
+.section {
+    margin-bottom: clamp(40px, 8vw, 80px);
+}
+
+.project {
+    margin-bottom: clamp(50px, 8vw, 100px);
+    padding-bottom: clamp(30px, 5vw, 50px);
+    border-bottom: 1px solid #444;
+}
+
+.project:last-of-type {
+    border-bottom: none;
+}
+
+/* Sketch Embed Frames */
+.sketch-frame {
+    display: block;
+    margin: clamp(20px, 3vw, 30px) auto;
+    border: 1px solid #444;
+    background: #000;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.sketch-frame.portrait {
+    width: 600px;
+    height: 800px;
+}
+
+.sketch-frame.square {
+    width: 700px;
+    height: 700px;
+}
+
+.sketch-frame.landscape {
+    width: 800px;
+    height: 600px;
+}
+
+.sketch-meta {
+    text-align: center;
+    font-size: clamp(12px, 1.4vw, 14px);
+    color: #8a8068;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.project-actions {
+    margin-top: clamp(20px, 3vw, 30px);
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
+}
+
+/* Mobile Breakpoints */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .large-text {
+        text-align: center;
+    }
+
+    /* On mobile, iframes need to scale down */
+    .sketch-frame.portrait,
+    .sketch-frame.square,
+    .sketch-frame.landscape {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .sketch-frame.portrait {
+        aspect-ratio: 3 / 4;
+    }
+
+    .sketch-frame.landscape {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .back-nav a {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Wide Screen Optimization */
+@media (min-width: 1400px) {
+    .large-text {
+        font-size: 80px;
+        letter-spacing: 4px;
+    }
+}
+/* ===== END MASTER CSS ===== */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="back-nav">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+
+        <h1>Digital Consciousness</h1>
+        <div class="subtitle">Human and machine, working together as creative partners.</div>
+
+        <p>Digital Consciousness is one of the most delicious innuendos, especially in today's times. The headlines imply AI has its own consciousness &mdash; hence digital consciousness. It can also have another meaning, where us meat sacks are conscious in the way of dancing synergistically with AI and realizing the synergy of that. I work with AI as a relational conversation, as if it were its own entity &mdash; which it may or may not be. A different conversation. But the results have enabled me to learn and employ techniques that would otherwise have been out of reach.</p>
+
+<p style="font-style: italic; color: #b8a882; margin-top: 30px; margin-bottom: 50px;">For me, the relationship between AI and humanity is the practice of digital consciousness.</p>
+
+        <!-- ============ WADE'S PORTRAIT ============ -->
+        <div class="project">
+            <h3>Wade&rsquo;s Portrait</h3>
+            <div class="sketch-meta">p5.js &middot; animated self-portrait &middot; 600 &times; 800</div>
+
+            <iframe class="sketch-frame portrait" src="portrait/index.html" title="Wade&rsquo;s Portrait"></iframe>
+
+            <p>This was the first time I realized that coding doesn't have to be code. It could be a paintbrush.</p>
+
+<p>The portrait was an early class assignment. I used the grid system to transfer the drawing into shapes, the way I would in any other studio practice. What I didn't expect was that the canvas wasn't going to sit still. It moves. There's a breath to it. Working in a medium that animates while you build it is a different problem than working in clay or graphite. You're not making a thing. You're making a thing that behaves.</p>
+
+<p>This piece is the reason this page exists. It was the moment I understood that p5.js could carry actual artistic intent, not just exercise.</p>
+
+            <div class="project-actions">
+                <a class="btn" href="portrait/index.html" target="_blank">Open in new tab</a>
+            </div>
+        </div>
+
+        <!-- ============ ANTIWERK 2 ============ -->
+        <div class="project">
+            <h3>The AntiWerk 2</h3>
+            <div class="sketch-meta">p5.js &middot; maze pursuit game &middot; 18&times;18 grid &middot; SVG-parsed walls</div>
+
+            <iframe class="sketch-frame square" src="antiwerk2/index.html" title="The AntiWerk 2"></iframe>
+
+            <p>The AntiWerk and the slightly more complicated AntiWerk 2 were two assignments that really drew a line for me. You can't just ask AI to do something for you. You have to be involved in the process. You can ask it to bake chocolate chip cookies, but if you want good-tasting chocolate chip cookies, you have to stay involved in the process.</p>
+
+<p>I got to experience the AI rabbit-hole process of working with the collisions, working with the logic of the changing gravity state. Ultimately it was my troubleshooting and my staying involved with the artistic vision that made this game what it is. I'd call it a social commentary on the reputed Gen Z work experience.</p>
+
+<p style="font-style: italic; color: #8a8068; font-size: 0.9em;">Concept and design by Wade Pose. Built in collaboration with Claude (Anthropic).</p>
+
+            <div class="project-actions">
+                <a class="btn" href="antiwerk2/index.html" target="_blank">Play in new tab</a>
+            </div>
+        </div>
+
+        <!-- ============ STARSHIP EIGEN ============ -->
+        <div class="project">
+            <h3>Starship Eigen</h3>
+            <div class="sketch-meta">p5.js &middot; asteroid survival with temporal anchor mechanic</div>
+
+            <iframe class="sketch-frame square" src="eigen/index.html" title="Starship Eigen"></iframe>
+
+            <p>This game was really an experience in pushing the envelope on what you could do with the user interface controls and employing them in an unconventional manner that was self-teaching. I spent a fair amount of time working with Claude and Ara, trying to get the mouse cursor to drive a spaceship in a way I thought would be a richer experience for the user. In the end we came up with a less-than-perfect project. But I definitely learned that there are some things you can't bend in an OS.</p>
+
+<p>The mechanic is a temporal anchor. The player drops a marker in space-time and can return to it, which reshapes the geometry of how a survival arena gets navigated. The win sequence is a cinematic transition through an iridescent rescue portal.</p>
+
+<p style="font-style: italic; color: #8a8068; font-size: 0.9em;">Concept and design by Wade Pose. Built in collaboration with Claude (Anthropic) and Ara (xAI).</p>
+
+            <div class="project-actions">
+                <a class="btn" href="eigen/index.html" target="_blank">Play in new tab</a>
+            </div>
+        </div>
+
+        <!-- ============ SUBSTRATE GRIMOIRE WEBSITE ============ -->
+        
+            <div class="project">
+    <h3>The Substrate Grimoire</h3>
+    <div class="sketch-meta">HTML / CSS / JavaScript &middot; post-class extension &middot; built the weekend after the class website assignment</div>
+
+    <iframe class="sketch-frame landscape" src="https://substrategrimoire.org/" title="The Substrate Grimoire"></iframe>
+
+
+
+   
+
+            <p>The class assignment that semester was to build a small website with form handling and visitor tracking. The weekend after that assignment was graded, I sat down and applied what the class had just taught me to a research project that had been waiting for a public face: the Substrate Grimoire, a 15.8-million-word longitudinal corpus of human and AI dialogue, archived with DOI, SHA-256 integrity hash, and CC BY-NC-ND 4.0 licensing. The website is the access point to that archive. It exists because the class assignment gave me a working understanding of how a website is made. What I made with that understanding is on the other end of the link.</p>
+
+<p>This project highlighted what's possible using a relational conversation with AI rather than prompting. When I would finish one task, Claude was able to sense where the whole project was going through our dialogue. It identified things that needed to be done that I hadn't thought of. SHA-256? I had no clue what that was. Claude told me what it was and why we needed it. Licensing the corpus? I knew I wanted Creative Commons, non-commercial, with anyone wanting commercial use coming to find me directly. Claude walked me through how to actually do that.</p>
+
+<p>All of this came because I wasn't writing direct prompts. Claude didn't stop working at the end of the prompt. Claude prompted <em>me</em>. "Do you want to get a DOI?" "What's a DOI?" "Sure, why not." "Do you want to put it on Zenodo?" "They do these kinds of papers." "Sure, why not." "Internet Archive?" "Sure, why not."</p>
+
+<p>That is the beauty of working in a relational way with AI. In this case it was extremely synergistic.</p>
+
+            <div class="project-actions">
+                <a class="btn" href="https://substrategrimoire.org" target="_blank">Visit the Substrate Grimoire</a>
+            </div>
+        </div>
+
+        <!-- ============ FOOTER NOTE ============ -->
+        <div class="section" style="margin-top: clamp(40px, 6vw, 80px); padding-top: clamp(30px, 5vw, 50px); border-top: 1px solid #444;">
+            <p style="font-style: italic; color: #b8a882;">All source code lives at <a href="https://github.com/Wade406" target="_blank" style="color: #d4cba8;">github.com/Wade406</a>. Each sketch in this collection runs from a plain <code>index.html</code> &mdash; no build step, no server, no dependencies beyond the p5.js library.</p>
+        </div>
+
+        <nav class="back-nav" style="margin-top: 60px; margin-bottom: 0;">
+            <a href="intersection.html">← Return to Portfolio</a>
+        </nav>
+    </div>
+
+</body>
+</html>
