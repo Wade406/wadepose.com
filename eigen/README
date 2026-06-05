@@ -1,0 +1,37 @@
+STARSHIP EIGEN
+A p5.js space navigation game. Survive an unstable asteroid field for sixty seconds, then reach the rescue portal before the field collapses on you.
+
+HOW TO PLAY
+You are piloting a vessel that has been pulled out of dimensional transit into an unstable asteroid field. Your vessel retains the inertia from the jump. Movement of the mouse steers the ship; faster movement applies more vector. Stopping lets drift take over.
+Left-click deploys a temporal anchor on the nearest asteroid. Anchored asteroids enter time dissociation — they freeze in place.
+Survive the field. After sixty seconds, an iridescent portal appears in a safe region of space. Navigate the ship into the portal to win.
+
+Die conditions:
+
+Flying into an unfrozen asteroid
+Being pulled into the core of a time-dissociated shield (slow down too close and it will have you)
+
+DESIGN NOTES
+
+The game's central mechanic — speed as survival — emerged from a discussion about what "time dilation" should actually do mechanically. If a frozen asteroid is genuinely outside of time, its gravitational field should behave like a physical constant. The ship, still inside time, experiences that field as a pull. Fast-moving ships have enough momentum to resist; slow or idle ships get consumed. The math for this inverts intuitive gameplay: careful navigation is what kills you.
+Every frozen shield creates an exclusion zone. The six-anchor limit forces commitment: a shield placed poorly is terrain the player must now avoid. A shield placed well is a bulwark. The endgame loop becomes a tension between defensive placement and creating navigable corridors for the final portal run.
+Asteroid colors encode size, which encodes threat profile:
+
+KEY LEARNING POINTS
+
+Code has a spatial structure that matters. Several bugs in this project came from pasting code blocks in the wrong place: a HUD block that ended up outside its parent function, a duplicate block that got pasted twice when the first paste appeared to fail. Learning to read a file as a nested structure — which brace closes what, which function contains which block — was as important as learning any specific syntax. Adding a table of contents and banner comments to the file was helpful.
+TECHNICAL
+Stack: p5.js 1.9.0, vanilla JavaScript, HTML.
+Arrays used:
+
+stars[] — background starfield, pre-computed at setup
+asteroids[] — all asteroid objects with position, velocity, color, vertices
+Each asteroid has its own vertices[] array of polar coordinates defining its rock shape
+
+Obstacles: 14 asteroids spawn at game start, three size classes, three color families, varied per-class speed ranges. All wrap around screen edges.
+Click mechanic: Freezes nearest unfrozen asteroid within 300px. Frozen asteroids become non-moving obstacles that also generate gravitational pull zones.
+Exit: Iridescent pulsing portal appears after a sixty-second countdown at a position that is safely distant from the ship and outside any existing asteroid.
+Win: Ship touches portal → three-beat cinematic rescue sequence (JUMP COORDINATES LOCKED → DIMENSIONAL TRANSIT SUCCESSFUL with warp effect → WELCOME BACK / REPORT FOR DUTY).
+
+CREDITS AND ACKNOWLEDGMENTS
+The game concept, design, implementation, and tuning is my work.  Code was developed in active pair-programming collaboration with Claude (Anthropic), used as a thinking partner and debugging companion. All design decisions, mechanical choices, and aesthetic calls are mine. The AI served as a sounding board, an explainer of unfamiliar syntax, and a second pair of eyes on code structure.
